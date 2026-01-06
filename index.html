@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zodiac Sign - Divine Stars Astrology</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@200;300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #050507;
+            --gold-accent: #d4af37;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-deep);
+            color: #e2e2e7;
+            margin: 0;
+            overflow-x: hidden;
+            cursor: none; /* Custom cursor */
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.4) 0%, transparent 70%);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease-out;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+        .custom-cursor-follower {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: transform 0.2s ease-out;
+        }
+        .cosmic-gradient {
+            background: radial-gradient(circle at 50% -20%, #1a1a2e 0%, #050507 70%);
+        }
+        @media (max-width: 768px) {
+            body { cursor: auto; }
+            .custom-cursor, .custom-cursor-follower { display: none; }
+        }
+        ::selection {
+            background: rgba(212, 175, 55, 0.2);
+            color: white;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "framer-motion": "https://esm.sh/framer-motion@^11.0.8"
+  }
+}
+</script>
+</head>
+<body>
+    <div class="custom-cursor" id="cursor"></div>
+    <div class="custom-cursor-follower" id="cursor-follower"></div>
+    <div id="root"></div>
+    <script>
+        const cursor = document.getElementById('cursor');
+        const follower = document.getElementById('cursor-follower');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX - 10 + 'px';
+            cursor.style.top = e.clientY - 10 + 'px';
+            follower.style.left = e.clientX - 20 + 'px';
+            follower.style.top = e.clientY - 20 + 'px';
+        });
+    </script>
+</body>
+</html>
